@@ -7,7 +7,7 @@ import { MessageActionRow, MessageButton } from 'discord.js'
 export default class PingCommand implements Command {
   /** 실행되는 부분입니다. */
   async run (interaction: I) {
-    const id = Math.random().toString(36).substr(2, 5)
+    const id = Math.random().toString(36).substring(2, 5)
     const retryBtn = new MessageButton({ customId: id, label: '다시 측정', style: 'SUCCESS' })
     const actionRow = new MessageActionRow({ components: [retryBtn] })
 
