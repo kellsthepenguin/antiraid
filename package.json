@@ -1,10 +1,9 @@
 {
-  "name": "",
+  "name": "antiraid",
   "version": "0.0.0",
   "main": "dist/index.js",
-  "repository": "",
-  "author": "",
-  "license": "",
+  "author": "kellsthepenguin",
+  "license": "MIT",
   "scripts": {
     "start": "node .",
     "build": "(rm -rf dist/commands || true) && tsc",
@@ -26,9 +25,10 @@
   "dependencies": {
     "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
+    "recheck": "^4.2.2",
     "typescript": "^4.4.3"
   },
   "engines": {
-    "node": "^16.0.0"
+    "node": "^17.0.0"
   }
 }

@@ -1840,6 +1840,36 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+recheck-jar@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/recheck-jar/-/recheck-jar-4.2.2.tgz#7515edc870eefed00886becc7ad1cad971dc0262"
+  integrity sha512-N2UavcQWcmwCfOjI+dKTPuyTf06Ub1FTW+iHQXKeTT/UsFJiZm/gLWXGZUehQ+OxmNTFMX48WTy8RoLuBLkZzQ==
+
+recheck-linux-x64@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/recheck-linux-x64/-/recheck-linux-x64-4.2.2.tgz#6f3892aeadc4ab375dafa7f5a0968217e6e9a9c7"
+  integrity sha512-s4NYPd0GJnoYGwatDqJ7VyTDwakZzOjnFc4Pv6WLkUD/paBqEMDtRKnUE2pTGjRg7cuHwfpW9nVZe36MZTH3Jw==
+
+recheck-macos-x64@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/recheck-macos-x64/-/recheck-macos-x64-4.2.2.tgz#430e0282a7c3f53e319de795dbbf045e8610eeba"
+  integrity sha512-kKwrLBqbZw5jhP1ZN9EilC3Jkna89jWWPSsLBwuq1wIn93yfWvD6+XZ62mBBRYWOnVQKL1DhN+4ImadXzUVEMA==
+
+recheck-windows-x64@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/recheck-windows-x64/-/recheck-windows-x64-4.2.2.tgz#c34e3a8e32fdd5e5aff8e064a26866eb081696d5"
+  integrity sha512-68Lpe1R9VRt40vQcHidWvzXwt76R1lkVoP8aDmJXu27OUITzhE35csTTY/dHyDJW+NnQTb7y/ug88S5ndXQLOw==
+
+recheck@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/recheck/-/recheck-4.2.2.tgz#f375f6e747a112478a98b1ad0488530f9cd8a84f"
+  integrity sha512-/WwMepG9ER+5hb5+/gAZ8+Njhgto/OwY74DziQ30/ZS1ht6Uyk6+xN6x+8G+bqG0cAxteNdw3bGJm28w+EMTXA==
+  optionalDependencies:
+    recheck-jar "4.2.2"
+    recheck-linux-x64 "4.2.2"
+    recheck-macos-x64 "4.2.2"
+    recheck-windows-x64 "4.2.2"
+
 regexpp@^3.0.0, regexpp@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
