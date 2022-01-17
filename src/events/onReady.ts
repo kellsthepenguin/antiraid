@@ -5,7 +5,7 @@ export default function onReady () {
   if (!client.user) return
 
   console.log('Ready!', client.user.username)
-  client.user.setActivity('with your heart')
+  client.user.setActivity('protecting your server')
 
   if (process.env.ENVIROMENT_DEV_GUILD) {
     slash.registCachedCommands(client)
