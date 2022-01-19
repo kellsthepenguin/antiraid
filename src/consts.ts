@@ -16,7 +16,7 @@ export default class Consts {
    * 만약 `[DISALLOWED_INTENTS]`로 시작하는 에러가 발생할 경우 [이곳](https://stackoverflow.com/a/64007362)을 참고하세요.
    */
   public static readonly CLIENT_INTENTS: IntentsString[] =
-    ['GUILDS'/* 권한을 이곳에 추가하세요 */]
+    ['GUILDS', 'GUILD_MEMBERS']
 
   /** 명령어 폴더 경로 */
   public static readonly COMMANDS_PATH =
