@@ -11,4 +11,4 @@ export const slash = new SlashHandler()
 
 client.onEvent('ready', onReady)
 client.onEvent('interactionCreate', onInteractionCreate)
-client.onEvent('message', onMessage)
+client.onEvent('messageCreate', onMessage)
