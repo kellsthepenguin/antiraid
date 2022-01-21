@@ -1,35 +1,47 @@
-import { Message } from 'discord.js'
+import { Message, User } from 'discord.js'
 
 import { compareTwoStrings } from 'string-similarity'
 
-const serverSpams = new Map<string, Map<string, Message[]>>()
+const serverSpams = new Map<string, Map<string, User[]>>()
 
 export default function onMessage (message: Message) {
   if (!message.guild) return
 
-  const guildId = message.guildId!
+  const guild = message.guild!
 
-  if (serverSpams.has(guildId!)) {
-    serverSpams.set(guildId, new Map<string, Message[]>())
+  if (!serverSpams.has(guild.id)) {
+    serverSpams.set(guild.id, new Map<string, User[]>())
   }
 
-  const spams = serverSpams.get(guildId)!
+  const spams = serverSpams.get(guild.id)!
 
-  spams.forEach((msgs, mainMsg) => {
+  if (spams.size === 0) {
+    spams.set(message.content, [])
+    setTimeout(() => {
+      if (spams.has(message.content)) {
+        spams.delete(message.content)
+      }
+    }, 150000) // 2.5 minute
+  }
+
+  spams.forEach((users, mainMsg) => {
     const similarity = compareTwoStrings(mainMsg, message.content)
 
     if (similarity >= 0.51) {
-      msgs.push(message)
+      users.push(message.author)
+    } else {
+      spams.set(message.content, [])
     }
 
-    if (msgs.length >= 5) {
-      msgs.forEach(async (msg) => {
-        const guild = msg.guild!
-        const member = await guild.members.fetch(msg.author)
+    if (users.length >= 5) {
+      users.forEach(async (user) => {
+        const member = await guild.members.fetch(user)
+        const owner = await guild.fetchOwner()
 
-        member.kick().catch(async () => {
-          (await guild.fetchOwner()).send(`${msg.author.tag}(${msg.author.id}) is spamming, but i failed to kick`)
-        })
+        if (!member) return
+
+        member.kick()
+          .catch(() => owner.send(`${user.tag}(${user.id}) is spamming, but i failed to kick`))
       })
     }
   })
